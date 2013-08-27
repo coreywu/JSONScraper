@@ -29,6 +29,7 @@ with connection:
     data = simplejson.load(f)
     if data["meta"]["status"] == 200:
       if data["data"]["product_name"] != None:
+        productIds.append(productId);
         print "INSERT INTO ProductInfo VALUES(" + str(data["data"]["product_id"]) + ", " + str(data["data"]["product_name"]) + ", " + str(data["data"]["calories"]) + ")"
         cursor.execute("INSERT INTO ProductInfo VALUES(" +
             str(data["data"]["product_id"]) + ", '" +
